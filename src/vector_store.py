@@ -80,16 +80,7 @@ class VectorStore:
     def total_documents(self):
 
         return self.collection.count()
-    
-    def search(self, query, top_k=3):
 
-        results = self.collection.query(
-
-        query_texts=[query],
-
-        n_results=top_k
-
-    )
     def reset_collection(self):
         try:
             self.client.delete_collection(COLLECTION_NAME)
@@ -101,4 +92,14 @@ class VectorStore:
             embedding_function=self.embedding_function,
             metadata={"hnsw:space": "cosine"}
         )
+    
+    def search(self, query, top_k=3):
+
+        results = self.collection.query(
+
+        query_texts=[query],
+
+        n_results=top_k
+
+    )
         return results
