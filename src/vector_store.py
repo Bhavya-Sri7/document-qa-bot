@@ -90,5 +90,15 @@ class VectorStore:
         n_results=top_k
 
     )
+    def reset_collection(self):
+        try:
+            self.client.delete_collection(COLLECTION_NAME)
+        except Exception:
+            pass
 
+        self.collection = self.client.get_or_create_collection(
+            name=COLLECTION_NAME,
+            embedding_function=self.embedding_function,
+            metadata={"hnsw:space": "cosine"}
+        )
         return results
