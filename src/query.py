@@ -26,15 +26,15 @@ def ask_question(question):
 
     for doc, meta in zip(documents, metadatas):
 
-    source = meta["source"]
-    page = meta["page"]
+        source = meta["source"]
+        page = meta["page"]
 
-    citations.append(f"{source} (Page {page})")
+        citations.append(f"{source} (Page {page})")
 
-    context += (
-        f"[Source: {source}, Page: {page}]\n"
-        f"{doc}\n\n"
-    )
+        context += (
+            f"[Source: {source}, Page: {page}]\n"
+            f"{doc}\n\n"
+        )
 
     prompt = f"""
 {SYSTEM_PROMPT}
