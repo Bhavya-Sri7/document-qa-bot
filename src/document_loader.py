@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 from pypdf import PdfReader
 from docx import Document
-from logger import logger
 
 def clean_text(text: str) -> str:
     """
