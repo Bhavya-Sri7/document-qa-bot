@@ -16,6 +16,8 @@ def ingest_documents(folder="data"):
 
     db = VectorStore()
 
+    db.reset_collection()
+
     db.add_chunks(chunks)
 
     return len(pages), len(chunks), db.total_documents()
