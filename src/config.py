@@ -26,4 +26,4 @@ CHUNK_OVERLAP = 200
 
 # ---------------- Retrieval ---------------- #
 
-TOP_K = 3
+TOP_K = 5
